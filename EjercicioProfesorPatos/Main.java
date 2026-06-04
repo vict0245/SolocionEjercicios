@@ -1,4 +1,5 @@
-import  diferentesPatos.*;
+import diferentesPatos.*;
+
 import Models.Pato;
 
 public class Main {
@@ -10,6 +11,8 @@ public class Main {
         patoo(new PatoDeCasa());
         esperar(2);
         patoo(new PatoMandarin());
+        esperar(2);
+        patoo(new PatoVendedoraDeRosa());
     }
 
     public static void esperar(int segundos) {

@@ -1,31 +1,38 @@
 package Models;
-import interfaces.comportamientoVuelo;
-import interfaces.comportamientoGraznido;
+import interfaces.comportamientoDeVuelo;
+import interfaces.comportamientoDeGraznido;
+import comportamientosVuelo.volarConAlas;
+import comportamientosVuelo.sinVuelo;
+import comportamientosVuelo.vareta;
+import comportamientosGraznido.quakear;
+import comportamientosGraznido.chillido;
+import comportamientosGraznido.mudo;
+import comportamientosGraznido.mijooo;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Pato {
 
-    private comportamientoVuelo cv;
-    private comportamientoGraznido cg;
-    protected comportamientoVuelo tipoVuelo;
-    protected comportamientoGraznido tipoGraznido;
+    protected comportamientoDeVuelo tipoVuelo;
+    protected comportamientoDeGraznido tipoGraznido;
     protected String nombre;
 
-    private static final Map<String, comportamientoVuelo> comportamientosVuelo = new HashMap<>();
-    private static final Map<String, comportamientoGraznido> comportamientosGraznido = new HashMap<>();
+    private static final Map<String, comportamientoDeVuelo> comportamientoVuelo = new HashMap<>();
+    private static final Map<String, comportamientoDeGraznido> comportamientoGraznido = new HashMap<>();
 
     static {
-        comportamientosVuelo.put("volarConAlas", new comportamientosVuelo.volarConAlas());
-        comportamientosVuelo.put("sinVuelo", new comportamientosVuelo.sinVuelo());
+        comportamientoVuelo.put("volarConAlas", new volarConAlas());
+        comportamientoVuelo.put("sinVuelo", new sinVuelo());
+        comportamientoVuelo.put("vareta", new vareta()); // Reutilizando volarConAlas para "vareta"
 
-        comportamientosGraznido.put("quack", new comportamientosGraznido.quakear());
-        comportamientosGraznido.put("chillido", new comportamientosGraznido.chillido());
-        comportamientosGraznido.put("mudo", new comportamientosGraznido.mudo());
+        comportamientoGraznido.put("quack", new quakear());
+        comportamientoGraznido.put("chillido", new chillido());
+        comportamientoGraznido.put("mudo", new mudo());
+        comportamientoGraznido.put("mijooo", new mijooo());
     }
 
     public void hacerQuack(){
-        cg.quak();
+        tipoGraznido.quak();
     }
 
     public void nadar(){
@@ -37,22 +44,23 @@ public abstract class Pato {
     }
 
     public void volar(){
-        cv.volar();
+        tipoVuelo.volar();
     }
 
     public void emprenderVuelo(){
-        cv.emprenderVuelo();
+        tipoVuelo.emprenderVuelo();
     }
 
-    protected void establecerVuelo(String cv){
-        this.cv = comportamientosVuelo.get(cv);
+    protected void establecerComportamientoDeVuelo(String cv){  
+        this.tipoVuelo = comportamientoVuelo.get(cv);
     }
 
-    protected void establecerGraznido(String cg){
-        this.cg = comportamientosGraznido.get(cg);
+    protected void establecerComportamientoDeGraznido(String cg){
+        this.tipoGraznido = comportamientoGraznido.get(cg);
     }
 
     public void mostrarNombre(){
         System.out.println("SOY UN PATO: " + nombre);
     }
+
 }

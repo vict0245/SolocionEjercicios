@@ -3,10 +3,9 @@ import Models.Pato;
 
 public class PatoMallard extends Pato{
     public PatoMallard() {
-        super();
-        establecerVuelo("volarConAlas");
-        establecerGraznido("quack");
-        nombre = "Pato Mallard";
+        this.establecerComportamientoDeVuelo("volarConAlas");
+        this.establecerComportamientoDeGraznido("quack");
+        this.nombre = "Pato Mallard";
     }
 
     @Override

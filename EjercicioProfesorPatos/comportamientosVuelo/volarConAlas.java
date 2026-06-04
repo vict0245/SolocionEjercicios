@@ -1,7 +1,7 @@
 package comportamientosVuelo;
-import interfaces.comportamientoVuelo;
+import interfaces.comportamientoDeVuelo;
 
-public class volarConAlas implements comportamientoVuelo {
+public class volarConAlas implements comportamientoDeVuelo {
     public void volar() {
         System.out.println("¡Estoy volando con mis alas!");
     }

@@ -3,10 +3,9 @@ import Models.Pato;
 
 public class PatoDeCasa extends Pato{
     public PatoDeCasa() {
-        super();
-        establecerVuelo("sinVuelo");
-        establecerGraznido("mudo");
-        nombre = "Pato de Casa";
+        this.establecerComportamientoDeVuelo("sinVuelo");
+        this.establecerComportamientoDeGraznido("mudo");
+        this.nombre = "Pato de Casa";
     }
 
     @Override

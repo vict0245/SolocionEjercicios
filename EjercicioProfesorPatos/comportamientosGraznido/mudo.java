@@ -1,7 +1,7 @@
 package comportamientosGraznido;
-import interfaces.comportamientoGraznido;
+import interfaces.comportamientoDeGraznido;
 
-public class mudo implements comportamientoGraznido {
+public class mudo implements comportamientoDeGraznido {
     public void quak() {
         System.out.println("...(silencio)...");
         System.out.println("      _");

@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface comportamientoVuelo {
+public interface comportamientoDeVuelo {
     void emprenderVuelo();
     void volar();
 }

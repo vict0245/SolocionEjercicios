@@ -1,7 +1,7 @@
 package comportamientosGraznido;
-import interfaces.comportamientoGraznido;
+import interfaces.comportamientoDeGraznido;
 
-public class quakear implements comportamientoGraznido {
+public class quakear implements comportamientoDeGraznido {
     public void quak() {
         System.out.println("quaaaaaaaaaaak.");
         System.out.println("      _");
