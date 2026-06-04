@@ -1,13 +1,29 @@
 package Models;
 import interfaces.comportamientoVuelo;
 import interfaces.comportamientoGraznido;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Pato {
 
-    protected comportamientoVuelo cv;
-    protected comportamientoGraznido cg;
+    private comportamientoVuelo cv;
+    private comportamientoGraznido cg;
+    protected comportamientoVuelo tipoVuelo;
+    protected comportamientoGraznido tipoGraznido;
     protected String nombre;
-    
+
+    private static final Map<String, comportamientoVuelo> comportamientosVuelo = new HashMap<>();
+    private static final Map<String, comportamientoGraznido> comportamientosGraznido = new HashMap<>();
+
+    static {
+        comportamientosVuelo.put("volarConAlas", new comportamientosVuelo.volarConAlas());
+        comportamientosVuelo.put("sinVuelo", new comportamientosVuelo.sinVuelo());
+
+        comportamientosGraznido.put("quack", new comportamientosGraznido.quakear());
+        comportamientosGraznido.put("chillido", new comportamientosGraznido.chillido());
+        comportamientosGraznido.put("mudo", new comportamientosGraznido.mudo());
+    }
+
     public void hacerQuack(){
         cg.quak();
     }
@@ -28,12 +44,12 @@ public abstract class Pato {
         cv.emprenderVuelo();
     }
 
-    public void establecerVuelo(comportamientoVuelo cv){
-        this.cv = cv;
+    protected void establecerVuelo(String cv){
+        this.cv = comportamientosVuelo.get(cv);
     }
 
-    public void establecerGraznido(comportamientoGraznido cg){
-        this.cg = cg;
+    protected void establecerGraznido(String cg){
+        this.cg = comportamientosGraznido.get(cg);
     }
 
     public void mostrarNombre(){

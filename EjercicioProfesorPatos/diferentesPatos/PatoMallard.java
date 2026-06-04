@@ -4,8 +4,8 @@ import Models.Pato;
 public class PatoMallard extends Pato{
     public PatoMallard() {
         super();
-        cv = new comportamientosVuelo.volarConAlas();
-        cg = new comportamientosGraznido.quakear();
+        establecerVuelo("volarConAlas");
+        establecerGraznido("quack");
         nombre = "Pato Mallard";
     }
 

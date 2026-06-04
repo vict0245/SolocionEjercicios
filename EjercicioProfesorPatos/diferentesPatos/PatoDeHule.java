@@ -4,8 +4,8 @@ import Models.Pato;
 public class PatoDeHule extends Pato{
     public PatoDeHule() {
         super();
-        cv = new comportamientosVuelo.sinVuelo();
-        cg = new comportamientosGraznido.chillido();
+        establecerVuelo("sinVuelo");
+        establecerGraznido("chillido");
         nombre = "Pato de Hule";
     }
 

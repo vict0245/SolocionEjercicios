@@ -4,8 +4,8 @@ import Models.Pato;
 public class PatoDeCasa extends Pato{
     public PatoDeCasa() {
         super();
-        cv = new comportamientosVuelo.volarConAlas();
-        cg = new comportamientosGraznido.quakear();
+        establecerVuelo("sinVuelo");
+        establecerGraznido("mudo");
         nombre = "Pato de Casa";
     }
 
